@@ -17,7 +17,7 @@ if response.status_code == 200:
     with open(filename, "wb") as f:
         f.write(response.content)
 else:
-    print("Download failed with status code:", response.status_code)
+    print("Download failed with status code :", response.status_code)
     exit()
 
 # Read and display the dataset
