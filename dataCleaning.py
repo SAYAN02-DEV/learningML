@@ -22,4 +22,24 @@ else:
 
 # Read and display the dataset
 housing = pd.read_csv(filename, sep='\t')
-print(housing.head(5))
+# print(housing.head(5))
+
+# housing.info()
+# print(housing["SalePrice"].describe())
+# print(housing["Sale Condition"].value_counts())
+
+print("Skewness before normalizing: %f" % housing['SalePrice'].skew())
+
+log_transformed = np.log(housing['SalePrice'])
+
+#this plot show the right side has a longer tail
+graph = sns.displot(housing['SalePrice'])
+# graph.figure.canvas.manager.set_window_title("Original SalePrice Distribution")
+
+# this plot normalize that making the graph bell shaped
+graph2 = sns.displot(log_transformed)
+# graph2.figure.canvas.manager.set_window_title("Log-Transformed SalePrice Distribution")
+
+
+print("Skewness after normalizing: %f" %(log_transformed).skew())
+plt.show()
