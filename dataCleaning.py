@@ -41,5 +41,10 @@ graph2 = sns.displot(log_transformed)
 # graph2.figure.canvas.manager.set_window_title("Log-Transformed SalePrice Distribution")
 
 
-print("Skewness after normalizing: %f" %(log_transformed).skew())
-plt.show()
+# print("Skewness after normalizing: %f" %(log_transformed).skew())
+# plt.show()
+
+#handling duplicates
+
+duplicate = housing[housing.duplicated(['PID'])]
+print(duplicate)
